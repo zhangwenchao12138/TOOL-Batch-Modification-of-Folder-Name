@@ -37,9 +37,21 @@ function reName (path, oldName, newName) {
     });
 }
 
+function normalizationPath(path){
+    var newPath = path;
+    var N = path.split("\\").length;
+
+    for(var i=0; i < N; i++){
+        newPath = newPath.replace("\\", "\/");
+    }
+
+    return newPath;
+}
+
 module.exports = {
     getListOfPath,
-    reName
+    reName,
+    normalizationPath
 }
 
 // var oldnameList = getListOfPath(PATH);
